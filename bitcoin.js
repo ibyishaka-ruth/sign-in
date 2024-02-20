@@ -36,7 +36,7 @@ export default function Bitcoin() {
                 />
             </View>
             <View style={{ marginLeft: 10 }}>
-                <Text style={{ fontWeight: 'bold', fontSize: 20, fontFamily: 'serif' }}>Your wallet</Text>
+                <Text style={{ fontWeight: 'bold', fontSize: 20, fontFamily: 'serif' }}>Your wallets</Text>
             </View>
             <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{}}>
                 <View style={styles.images}>
