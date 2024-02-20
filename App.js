@@ -1,62 +1,31 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text,TouchableOpacity, View } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import Zocial from 'react-native-vector-icons/Zocial';
-import Fontisto from 'react-native-vector-icons/Fontisto';
-import { CheckBox } from "react-native-elements";
-import AntDesign from 'react-native-vector-icons/AntDesign';
+// import Zocial from 'react-native-vector-icons/Zocial';
+// import Fontisto from 'react-native-vector-icons/Fontisto';
+// import { CheckBox } from "react-native-elements";
+import AntDesign from 'react-native-vector-icons/AntDesign'
+import { TextInput,CheckBox } from 'react-native-paper';
+import Amafoto from './image';
+import Regist from './register';
+import Login from './log';
+import Bitcoin from './bitcoin'
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Screen from './task';
 
+const Stack = createNativeStackNavigator();
 export default function App() {
   return (
-    <SafeAreaView>
-    <View style={styles.content}>
-      <View style={styles.close}><FontAwesome name='close'/></View>
-    <View style={styles.container}>
-      <Text style= {{fontWeight: 'bold', fontSize: 20}}>Sign In</Text>
-      <Text style= {{marginTop: "5%"}}> Welcome back! Please enter your details</Text>
-      <View style={styles.email}>
-<Zocial name='email' color={'purple'}/>
-        <TextInput style={styles.email1} placeholder="enter your email">
-        </TextInput>
-      </View>
-      <View style={styles.password}>
-        <Fontisto name='locked' color={'skyblue'}/>
-        <TextInput style={styles.pass} placeholder="enter your password">
-        </TextInput>
-      </View>
-      <View style={styles.Checkbox}>
-  
-      <CheckBox style={styles.Checkbox} 
-        title="Remember "/>
-      </View>
-    </View>
-    <View style= {{marginTop: "40%"}}>
-    <View style={styles.forgot}>
-      <TouchableOpacity>
-      <Text  style={styles.forgot1} >Forgot password</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.sign}> 
-      <Text style={styles.sign1}>Sign In</Text>
-    </TouchableOpacity>
-    </View>
-    <View style={styles.bottom} >
-      <TouchableOpacity><Text> create account</Text>
-      </TouchableOpacity>
-      <TouchableOpacity><Text style={styles.up}>Sign up</Text>
-      </TouchableOpacity>
-    </View>
-    <View style={styles.apps}>
-    <AntDesign style={styles.face} name='facebook-square' size={30} color={'skyblue'}/>
-    <AntDesign style={styles.goog} name='google' size={30} color={'orange'}/>
-    <AntDesign style={styles.apple} name='apple1' size={30} color={'black'}/>
-  
-    </View>
-    </View>
-    
-    <StatusBar style="auto" />
-    </View>
-    </SafeAreaView>
-  );
+<NavigationContainer>
+<Stack.Navigator initialRouteName='Screen'>
+        <Stack.Screen name='login' component={Login}/>
+        <Stack.Screen name='register' component={Regist} />
+        <Stack.Screen name='home' component={Bitcoin}/>
+        < Stack.Screen name='Screen' component={Screen} options={{title:''}}/>
+      </Stack.Navigator>
+</NavigationContainer>
+ ) 
 }
 
 const styles = StyleSheet.create({
@@ -100,10 +69,8 @@ const styles = StyleSheet.create({
   pass:{
     marginLeft:30
   },
-  Checkbox:{
-padding:1
-  },
-  Checkbox:{
+
+  checkbox:{
     width: "100%",
     flexDirection:'row',
     // justifyContent:'space-around',
